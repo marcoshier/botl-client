@@ -10,8 +10,8 @@ import org.openrndr.launch
 import org.openrndr.math.Vector2
 import kotlin.math.sin
 
-val local = InetSocketAddress("127.0.0.1", 9002)
-val remote = InetSocketAddress("127.0.0.1", 9003)
+val local = InetSocketAddress("localhost", 9002)
+val remote = InetSocketAddress("localhost", 9003)
 
 @OptIn(DelicateCoroutinesApi::class)
 fun main() = application {
@@ -19,6 +19,7 @@ fun main() = application {
     program {
         val selectorManager = SelectorManager(Dispatchers.IO)
         val socket = aSocket(selectorManager).udp().connect(local, remote)
+
 
         var text = ""
 
